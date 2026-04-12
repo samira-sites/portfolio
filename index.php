@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lea | Frontend Developer</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <header class="header">
+    <div class="container nav-container">
+
+      <a href="#" class="logo">SAM</a>
+
+      <nav class="nav" id="navMenu">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="contact-nav">Contact</a>
+      </nav>
+
+      <!-- Burger Button -->
+      <div id="burger" class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </header>
+  <div class="overlay"></div>
+  <!-- HERO -->
+  <section class="hero" id="home">
+
+    <div class="hero-text reveal">
+      <p class="badge">Website Developer</p>
+
+      <h1>Hi, I'm <span class="typing-text">Sam</span></h1>
+
+      <p class="subtitle">
+        I build clean, responsive websites focused on simplicity, clarity, and great user experience
+      </p>
+
+      <div class="buttons">
+        <a href="#projects" class="btn">View Work</a>
+        <a href="#contact" class="btn-outline">Contact Me</a>
+      </div>
+    </div>
+
+    <div class="hero-img reveal">
+      <img src="photo/profile.webp" alt="Lea">
+    </div>
+
+
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+
+    <p class="about-text reveal">
+      I am a website developer passionate about bringing ideas to life through clean, modern, and engaging digital
+      experiences. I enjoy creating websites that are simple, easy to use, and impactful for users.
+    </p>
+
+    <div class="about-grid">
+
+      <div class="card reveal">
+        <h3>Skills</h3>
+        <ul class="skills-li">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+          <li>PHP</li>
+          <li>Git</li>
+          <li>GitHub</li>
+          <li> cPanel</li>
+        </ul>
+
+      </div>
+      <div class="card reveal">
+        <h3>My Journey</h3>
+        <ul>
+          <li>💻 Built real-world web projects <span class="year-badge">2025–Present</span></li>
+          <li>🎓 Level 4 Diploma in Information Technology <span class="year-badge">2024–2026</span></li>
+          <li>🎓 Certificate in Computer Secretarial <span class="year-badge">2023</span></li>
+          <li>👩‍💼 Domestic Helper in Kuwait <span class="year-badge">2017–2026</span></li>
+        </ul>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!------PROJECTS -->
+  <section class="section" id="projects">
+    <h2 class="section-title">My Projects</h2>
+
+    <div class="projects-grid reveal">
+      <div class="project-card reveal">
+        <img src="photo/project1.webp" alt="Business Website">
+
+        <div class="project-info reveal">
+          <h3>Business Website</h3>
+          <p>A fully functional business platform with booking integration and lead generation system, designed to convert visitors into paying clients.</p>
+
+          <div class="actions">
+            <a href="https://samiraomar.com" target="_blank">View Live ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <img src="photo/project2.webp" alt="Contact System">
+
+        <div class="project-info reveal">
+          <h3>Nail Salon Website (Demo)</h3>
+          <p>A modern and responsive salon website with online booking, lead generation system, and an interactive map for easy client navigation.</p>
+          <div class="actions">
+            <a href="https://salon.samiraomar.com" target="_blank">View Live ↗</a>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <img src="photo/project3.webp" alt="Login System">
+
+        <div class="project-info reveal">
+          <h3>Login System</h3>
+          <p>Authentication system with PHP & MySQL</p>
+
+          <div class="actions">
+            <a href="#" onclick="alert('Coming soon')">View Live ↗</a>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <h2 class="section-title">Contact Me</h2>
+
+    <div class="contact-container reveal">
+
+      <!-- LEFT -->
+      <div class="contact-info glass reveal">
+
+        <div class="status-badge">
+          <span></span>
+          Available for work
+        </div>
+
+        <h3>Let’s build something great</h3>
+        <p>I’m open to freelance projects and collaborations in web development. I specialize in frontend development
+          and PHP with cPanel hosting.</p>
+
+        <div class="contact-details">
+
+          <div class="detail">
+            <i data-lucide="mail"></i>
+            <div>
+              <span>Email</span>
+              <a href="mailto:hello@samiraomar.com">hello@samiraomar.com</a>
+            </div>
+          </div>
+
+          <div class="detail">
+            <i data-lucide="map-pin"></i>
+            <div>
+              <span>Location</span>
+              <p>Kuwait</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-actions">
+          <a href="/cv.pdf" target="_blank" class="btn-outline">
+            <i data-lucide="download"></i> Download CV
+          </a>
+
+          <a href="https://wa.me/96567077369" target="_blank" class="whatsapp-right" aria-label="Chat on WhatsApp">
+            <img src="photo/whatsapp2.svg" alt="WhatsApp">
+          </a>
+        </div>
+      </div>
+      <!-- RIGHT -->
+      <form action="contact.php" method="POST" class="contact-form glass reveal" id="contactForm">
+
+        <div class="input-group">
+          <input type="text" name="name" required>
+          <label>Your Name</label>
+        </div>
+      
+        <div class="input-group">
+          <input type="email" name="email" required>
+          <label>Your Email</label>
+        </div>
+      
+        <div class="input-group textarea">
+          <textarea name="message" required></textarea>
+          <label>Your Message</label>
+        </div>
+      
+        <button class="btn">Send Message</button>
+        <span id="responseMsg"></span>
+      </form>
+
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+
+  <footer class="footer">
+
+    <div class="footer-container">
+
+      <!-- BRAND -->
+      <div class="footer-brand">
+        <h3>Samira Omar</h3>
+        <p>
+          Website Developer focused on creating clean, modern, and user-friendly digital experiences.
+        </p>
+      </div>
+
+      <!-- SOCIALS -->
+      <div class="socials">
+
+        <a href="#" target="_blank" class="icon-btn" aria-label="GitHub">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12 .5C5.7.5.5 5.7.5 12c0 5 3.2 9.3 7.7 10.8.6.1.8-.3.8-.6v-2.2c-3.1.7-3.8-1.3-3.8-1.3-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.8 2.2 3.3 1.5.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.3-5.1-5.7 0-1.3.5-2.4 1.1-3.2-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.2 1.2.9-.3 1.9-.4 2.9-.4s2 .1 2.9.4c2.3-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.7.8 1.1 1.9 1.1 3.2 0 4.4-2.6 5.4-5.1 5.7.4.3.8 1 .8 2v3c0 .3.2.7.8.6 4.5-1.5 7.7-5.8 7.7-10.8C23.5 5.7 18.3.5 12 .5z" />
+          </svg>
+        </a>
+
+        <a href="#" target="_blank" class="icon-btn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M20.4 20.4h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6h.1c.5-1 1.8-2.1 3.7-2.1 4 0 4.7 2.6 4.7 6v5.9zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.4H3.6V9h3.5v11.4z" />
+          </svg>
+        </a>
+
+        <a href="mailto:youremail@gmail.com" class="icon-btn" aria-label="Email">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5L4 8V6l8 5 8-5v2z" />
+          </svg>
+        </a>
+
+      </div>
+
+      <!-- LINKS -->
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <!-- DIVIDER -->
+      <div class="footer-line"></div>
+
+      <!-- BOTTOM -->
+      <div class="footer-bottom">
+        <p>© 2026 <strong>Samira Omar</strong>. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
