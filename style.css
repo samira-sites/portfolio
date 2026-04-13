@@ -117,7 +117,6 @@ body {
 .burger.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
-/* MOBILE NAV */
 @media (max-width: 768px) {
   .burger {
     display: flex;
@@ -132,12 +131,22 @@ body {
     width: 160px;
     padding: 15px;
     border-radius: var(--radius);
-    display: none;
     border: 1px solid var(--border);
+
+    /* hidden state */
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    visibility: hidden;
+
+    transition: all .3s ease;
   }
 
   .nav.active {
-    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    visibility: visible;
   }
 
   .nav a {
