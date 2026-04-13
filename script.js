@@ -89,7 +89,7 @@ form.addEventListener("submit", async function(e) {
 
   // ---------- SHOW "SENDING..." MESSAGE ----------
   msg.innerText = "Sending...";
-  msg.style.color = "blue";
+  msg.style.color = "white";
   msg.classList.add("show"); // add slide-in animation
 
   try {

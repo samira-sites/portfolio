@@ -104,7 +104,8 @@
 
         <div class="project-info reveal">
           <h3>Business Website</h3>
-          <p>A fully functional business platform with booking integration and lead generation system, designed to convert visitors into paying clients.</p>
+          <p>Business website with integrated booking and lead capture system to improve client flow and conversions.
+          </p>
 
           <div class="actions">
             <a href="https://samiraomar.com" target="_blank">View Live ↗</a>
@@ -117,7 +118,8 @@
 
         <div class="project-info reveal">
           <h3>Nail Salon Website (Demo)</h3>
-          <p>A modern and responsive salon website with online booking, lead generation system, and an interactive map for easy client navigation.</p>
+          <p>Modern responsive salon website with online booking, lead generation, and interactive map for easy client
+            navigation.</p>
           <div class="actions">
             <a href="https://salon.samiraomar.com" target="_blank">View Live ↗</a>
 
@@ -192,21 +194,24 @@
       <!-- RIGHT -->
       <form action="contact.php" method="POST" class="contact-form glass reveal" id="contactForm">
 
+        <!-- 🛡️ Anti-spam hidden field (DO NOT REMOVE) -->
+        <input type="text" name="website" style="display:none">
+
         <div class="input-group">
           <input type="text" name="name" required>
           <label>Your Name</label>
         </div>
-      
+
         <div class="input-group">
           <input type="email" name="email" required>
           <label>Your Email</label>
         </div>
-      
+
         <div class="input-group textarea">
           <textarea name="message" required></textarea>
           <label>Your Message</label>
         </div>
-      
+
         <button class="btn">Send Message</button>
         <span id="responseMsg"></span>
       </form>
