@@ -24,6 +24,7 @@ body {
   color: var(--text);
   scroll-behavior: smooth;
   scrollbar-gutter: stable;
+  padding-top: 65px;
 }
 
 /* ================= NAVBAR ================= */
