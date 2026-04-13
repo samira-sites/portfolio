@@ -43,6 +43,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .logo {
@@ -56,11 +57,14 @@ body {
   display: flex;
   align-items: center;
   gap: 25px;
+
 }
 @media (max-width: 768px) {
   .nav {
     display: flex;
     align-items: start;
+    position: absolute;
+    top: 100%;
   }
   .contact-nav {
     padding: 0.5 2rem;
