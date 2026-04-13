@@ -36,7 +36,7 @@ body {
   border: 2px solid var(--border);
   height: 70px; /* 👈 IMPORTANT: locks movement */
   padding: 0 2rem;
-
+background: var(--panel);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -54,6 +54,7 @@ body {
   display: flex;
   align-items: center;
   gap: 20px;
+  
 }
 
 @media (max-width: 768px) {
@@ -61,11 +62,11 @@ body {
     position: fixed;
     top: 70px;
     right: 10px;
-
+ background: rgb(10, 10, 20);
     flex-direction: column;
     justify-content: center;
 
-    background: rgba(10, 10, 20, 0.9);
+   align-items: flex-start;
     backdrop-filter: blur(10px);
     padding: 15px;
     border-radius: 12px;
@@ -75,6 +76,7 @@ body {
     pointer-events: none;
 
     transition: 0.3s ease;
+   
   }
 
   .nav.active {
@@ -85,7 +87,9 @@ body {
   .nav a {
     padding: 10px;
     margin: 0 !important;
+  
   }
+ 
 }
 .contact-nav {
   padding: 0.5rem 2rem !important;
