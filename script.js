@@ -82,7 +82,6 @@ const msg = document.getElementById("responseMsg");
 if (form) {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    console.log("SUBMIT FIRED");
 
     const formData = new FormData(form);
 
@@ -92,7 +91,7 @@ if (form) {
     msg.classList.add("show");
 
     try {
-      const response = await fetch("contact.php", {
+      const response = await fetch("./contact.php", {
         method: "POST",
         body: formData
       });

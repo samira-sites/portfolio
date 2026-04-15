@@ -239,7 +239,7 @@
       </div>
       
       <!-- RIGHT -->
-      <form action="contact.php" method="POST" class="contact-form glass reveal" id="contactForm">
+      <form  method="POST" class="contact-form glass reveal" id="contactForm">
 
         <!-- 🛡️ Anti-spam hidden field (DO NOT REMOVE) -->
         <input type="text" name="website" style="display:none">
