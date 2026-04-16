@@ -48,29 +48,8 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 
-document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-
-// =========================
-// EXTRA SCROLL ANIMATIONS
-// =========================
-function revealOnScroll() {
-  const elements = document.querySelectorAll(
-    ".reveal-bounce, .reveal-about, .reveal-left, .reveal-right"
-  );
-
-  elements.forEach((el) => {
-    const windowHeight = window.innerHeight;
-    const elementTop = el.getBoundingClientRect().top;
-
-    if (elementTop < windowHeight - 100) {
-      el.classList.add("active");
-    }
-  });
-}
-
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+document.querySelectorAll(".reveal, .reveal-left, .reveal-right")
+  .forEach(el => observer.observe(el));
 
 
 // ---------- GET FORM AND MESSAGE ELEMENT ----------
