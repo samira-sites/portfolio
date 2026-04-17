@@ -1,42 +1,59 @@
 console.log("JS FILE LOADED");
-
-// =========================
-// BURGER MENU
-// =========================
+console.log("mobile links:", document.querySelectorAll(".mobile-nav a"));
+  
 const burger = document.getElementById("burger");
-const mobileNav = document.getElementById("mobileNav");
+const headerContainer = document.querySelector(".header-container");
 const overlay = document.getElementById("overlay");
+const mobileLinks = document.querySelectorAll(".mobile-nav a");
 
-if (burger && mobileNav && overlay) {
-  burger.addEventListener("click", () => {
-    const isOpen = mobileNav.classList.contains("active");
-
-    burger.classList.toggle("active");
-    mobileNav.classList.toggle("active");
-    overlay.classList.toggle("active");
-
-    document.body.style.overflow = isOpen ? "" : "hidden";
-  });
-
-  // Close when clicking overlay
-  overlay.addEventListener("click", () => {
-    burger.classList.remove("active");
-    mobileNav.classList.remove("active");
-    overlay.classList.remove("active");
-    document.body.style.overflow = "";
-  });
-
-  // Close when clicking links
-  document.querySelectorAll(".mobile-nav a").forEach(link => {
-    link.addEventListener("click", () => {
-      burger.classList.remove("active");
-      mobileNav.classList.remove("active");
-      overlay.classList.remove("active");
-      document.body.style.overflow = "";
-    });
-  });
+// close menu
+function closeMenu() {
+  burger.classList.remove("active");
+  headerContainer.classList.remove("active");
+  overlay.classList.remove("active");
+  document.body.style.overflow = "";
 }
 
+// toggle menu
+function toggleMenu() {
+  const isOpen = headerContainer.classList.contains("active");
+
+  if (isOpen) closeMenu();
+  else {
+    burger.classList.add("active");
+    headerContainer.classList.add("active");
+    overlay.classList.add("active");
+    document.body.style.overflow = "hidden";
+  }
+}
+
+burger.addEventListener("click", toggleMenu);
+overlay.addEventListener("click", closeMenu);
+
+mobileLinks.forEach(link => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const id = link.getAttribute("href");
+    const target = document.querySelector(id);
+    if (!target) return;
+
+    closeMenu();
+
+    requestAnimationFrame(() => {
+      const headerOffset = 25;
+
+      const offsetTop =
+        target.getBoundingClientRect().top +
+        window.pageYOffset -
+        headerOffset;
+
+      window.scrollTo({
+        top: offsetTop
+      });
+    });
+  });
+});
 
 // =========================
 // SCROLL REVEAL
@@ -54,7 +71,7 @@ document.querySelectorAll(".reveal, .reveal-left, .reveal-right")
 
 
 // =========================
-// CONTACT FORM (FIXED + IMPROVED)
+// CONTACT FORM
 // =========================
 const form = document.getElementById("contactForm");
 const msg = document.getElementById("responseMsg");
@@ -67,11 +84,9 @@ if (form && msg) {
 
     const formData = new FormData(this);
 
-    // Debug (safe now)
     console.log("Sending form...");
     console.log([...formData.entries()]);
 
-    // UI feedback
     msg.innerText = "Sending...";
     msg.style.color = "blue";
     msg.classList.add("show");

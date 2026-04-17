@@ -11,40 +11,44 @@
 
 <body>
   <header class="header">
-    <div class="header-container"> <a href="#" class="logo">SAM</a>
+    <div class="header-container">
 
-    <!-- Desktop Nav -->
-    <nav class="nav desktop-nav">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact" class="contact-nav">Contact</a>
-    </nav>
+      <a href="#" class="logo">SAM</a>
 
-    <!-- Burger -->
-    <div id="burger" class="burger">
-      <span></span>
-      <span></span>
-      <span></span>
+      <!-- Desktop Nav -->
+      <nav class="nav desktop-nav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="contact-nav">Contact</a>
+      </nav>
+
+      <!-- Burger -->
+      <div id="burger" class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- ✅ Mobile Nav INSIDE container -->
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="#home" class="mobile-menu">Home</a>
+        <a href="#about" class="mobile-menu">About</a>
+        <a href="#projects" class="mobile-menu">Projects</a>
+        <a href="#contact" class="mobile-menu contact-nav">Contact</a>
+      </nav>
+
     </div>
 
-  <div class="overlay" id="overlay"></div>
-  <!-- Mobile Nav -->
-  <nav class="mobile-nav" id="mobileNav">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact" class="contact-nav">Contact</a>
-  </nav>
-</div>
-   
-
+    <!-- ✅ overlay OUTSIDE -->
+    <div class="overlay" id="overlay"></div>
   </header>
+
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-box">
       <div class="hero-img reveal-left">
-        <img src="photo/hero.webp" alt="Sam Profile" width="250" height="250" loading="eager" fetchpriority="high">
+        <img src="photo/hero.webp" alt="Sam Profile" width="200" height="200" loading="eager" fetchpriority="high">
       </div>
 
       <div class="hero-text reveal">
@@ -116,7 +120,7 @@
       <div class="card reveal">
         <h3>Skills</h3>
         <ul class="skills-li">
-          <li>HTML</li>
+          <li>HTML5</li>
           <li>CSS</li>
           <li>JavaScript</li>
           <li>PHP</li>
