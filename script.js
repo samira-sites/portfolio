@@ -1,44 +1,45 @@
 console.log("JS FILE LOADED");
 
+// =========================
+// BURGER MENU
+// =========================
 const burger = document.getElementById("burger");
 const mobileNav = document.getElementById("mobileNav");
 const overlay = document.getElementById("overlay");
 
-burger.addEventListener("click", () => {
-  const isOpen = mobileNav.classList.contains("active");
+if (burger && mobileNav && overlay) {
+  burger.addEventListener("click", () => {
+    const isOpen = mobileNav.classList.contains("active");
 
-  burger.classList.toggle("active");
-  mobileNav.classList.toggle("active");
-  overlay.classList.toggle("active");
+    burger.classList.toggle("active");
+    mobileNav.classList.toggle("active");
+    overlay.classList.toggle("active");
 
-  if (!isOpen) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "";
-  }
-});
+    document.body.style.overflow = isOpen ? "" : "hidden";
+  });
 
-// Close when clicking overlay
-overlay.addEventListener("click", () => {
-  burger.classList.remove("active");
-  mobileNav.classList.remove("active");
-  overlay.classList.remove("active");
-  document.body.style.overflow = "";
-});
-
-// Close when clicking links
-document.querySelectorAll(".mobile-nav a").forEach(link => {
-  link.addEventListener("click", () => {
+  // Close when clicking overlay
+  overlay.addEventListener("click", () => {
     burger.classList.remove("active");
     mobileNav.classList.remove("active");
     overlay.classList.remove("active");
     document.body.style.overflow = "";
   });
-});
+
+  // Close when clicking links
+  document.querySelectorAll(".mobile-nav a").forEach(link => {
+    link.addEventListener("click", () => {
+      burger.classList.remove("active");
+      mobileNav.classList.remove("active");
+      overlay.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+  });
+}
 
 
 // =========================
-// SCROLL REVEAL (INTERSECTION OBSERVER)
+// SCROLL REVEAL
 // =========================
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -52,58 +53,56 @@ document.querySelectorAll(".reveal, .reveal-left, .reveal-right")
   .forEach(el => observer.observe(el));
 
 
-// ---------- GET FORM AND MESSAGE ELEMENT ----------
+// =========================
+// CONTACT FORM (FIXED + IMPROVED)
+// =========================
 const form = document.getElementById("contactForm");
 const msg = document.getElementById("responseMsg");
 
-// ---------- FORM SUBMIT EVENT LISTENER ----------
-form.addEventListener("submit", async function(e) {
-  e.preventDefault(); // prevent default page reload (AJAX behavior)
+if (form && msg) {
+  const btn = form.querySelector("button");
 
-  // Collect form data to send to server
-  const formData = new FormData(this);
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-  // ---------- SHOW "SENDING..." MESSAGE ----------
-  msg.innerText = "Sending...";
-  msg.style.color = "blue";
-  msg.classList.add("show"); // add slide-in animation
+    const formData = new FormData(this);
 
-  try {
-    // ---------- AJAX REQUEST USING FETCH ----------
-    // Sends form data asynchronously to the PHP script
-    const response = await fetch("contact.php", {
-      method: "POST",
-      body: formData
-    });
+    // Debug (safe now)
+    console.log("Sending form...");
+    console.log([...formData.entries()]);
 
-    // Get server response as text
-    const data = await response.text();
-
-    // ---------- DISPLAY SERVER RESPONSE ----------
-    msg.innerText = data; // show message inside the form
-    // Green if success, red if error
-    msg.style.color = data.includes("successfully") ? "green" : "red";
-    msg.classList.add("show"); // slide-in effect
-
-    // Clear form if submission successful
-    if (data.includes("successfully")) form.reset();
-
-    // ---------- AUTO-HIDE MESSAGE AFTER TIMEOUT ----------
-    setTimeout(() => {
-      msg.classList.remove("show"); // hide slide animation
-      msg.innerText = "";           // clear text
-    }, 3000); // 3000ms = 3 seconds
-
-  } catch (err) {
-    // ---------- HANDLE NETWORK/SERVER ERROR ----------
-    msg.innerText = "Something went wrong!";
-    msg.style.color = "red";
+    // UI feedback
+    msg.innerText = "Sending...";
+    msg.style.color = "blue";
     msg.classList.add("show");
 
-    // Auto-hide error message after 3 seconds
-    setTimeout(() => {
-      msg.classList.remove("show");
-      msg.innerText = "";
-    }, 3000);
-  }
-});
+    btn.disabled = true;
+    btn.innerText = "Sending...";
+
+    try {
+      const response = await fetch("./contact.php", {
+        method: "POST",
+        body: formData
+      });
+
+      if (!response.ok) throw new Error("Server error");
+
+      const data = await response.text();
+
+      msg.innerText = data;
+      msg.style.color = data.toLowerCase().includes("success") ? "green" : "red";
+
+      if (data.toLowerCase().includes("success")) {
+        form.reset();
+      }
+
+    } catch (err) {
+      console.error(err);
+      msg.innerText = "Server error. Try again.";
+      msg.style.color = "red";
+    } finally {
+      btn.disabled = false;
+      btn.innerText = "Send Message";
+    }
+  });
+}

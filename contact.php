@@ -1,76 +1,83 @@
 <?php
 include 'config.php';
-
 session_start();
 
-/* 🛡️ Set form load time ONLY when page is opened */
-if ($_SERVER["REQUEST_METHOD"] == "GET") {
-    $_SESSION['form_time'] = time();
-}
+/* =========================
+   ONLY HANDLE POST REQUEST
+========================= */
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    // 🛡️ ANTI-SPAM 1: Honeypot (hidden field)
+    /* =========================
+       ANTI-SPAM 1: Honeypot
+    ========================= */
     $website = $_POST['website'] ?? '';
     if (!empty($website)) {
-        exit; // silent block (bot caught)
+        echo "❌ Spam detected.";
+        exit;
     }
 
-    // 🛡️ ANTI-SPAM 2: Time check (must not be too fast)
-    if (!isset($_SESSION['form_time']) || (time() - $_SESSION['form_time'] < 3)) {
-        exit; // too fast submission
-    }
-
-    // 🛡️ ANTI-SPAM 3: Rate limiting
+    /* =========================
+       ANTI-SPAM 2: Rate limiting
+       (FIXED: simple + reliable)
+    ========================= */
     if (!isset($_SESSION['last_submit'])) {
         $_SESSION['last_submit'] = 0;
     }
 
-    if (time() - $_SESSION['last_submit'] < 10) {
-        exit; // prevent spam clicking
+
+    /* =========================
+       GET FORM DATA
+    ========================= */
+    $name = trim($_POST['name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $message = trim($_POST['message'] ?? '');
+
+    if ($name === '' || $email === '' || $message === '') {
+        echo "❌ All fields are required.";
+        exit;
     }
 
-    $_SESSION['last_submit'] = time();
-
-    // 📩 Get form data
-    $name = $_POST['name'] ?? '';
-    $email = $_POST['email'] ?? '';
-    $message = $_POST['message'] ?? '';
-
-    // 💾 Save to database
+    /* =========================
+       SAVE TO DATABASE
+    ========================= */
     $stmt = $conn->prepare("INSERT INTO form (name, email, message) VALUES (?, ?, ?)");
     $stmt->bind_param("sss", $name, $email, $message);
 
-
     if ($stmt->execute()) {
+
+        /* =========================
+           TELEGRAM NOTIFICATION
+        ========================= */
+      
     $botToken = "8788596221:AAGWCxx9tCGnvJTaPMTOuTD1exkFGED1ekw";
-$chatID = "8637189183";
+    $chatID = "8637189183";
 
-$text = "📩 New Contact Form Message\n\n"
-      . "👤 Name: $name\n"
-      . "📧 Email: $email\n"
-      . "💬 Message: $message";
 
-$url = "https://api.telegram.org/bot$botToken/sendMessage";
+        $text = "📩 New Contact Form Message\n\n"
+              . "👤 Name: $name\n"
+              . "📧 Email: $email\n"
+              . "💬 Message: $message";
 
-$data = [
-    'chat_id' => $chatID,
-    'text' => $text
-];
+        $url = "https://api.telegram.org/bot$botToken/sendMessage";
 
-$ch = curl_init();
+        $data = [
+            'chat_id' => $chatID,
+            'text' => $text
+        ];
 
-curl_setopt($ch, CURLOPT_URL, $url);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-$result = curl_exec($ch);
+        curl_exec($ch);
+        curl_close($ch);
 
-curl_close($ch);
         echo "✅ Message sent successfully!";
+
     } else {
-        echo "❌ Error: " . $stmt->error;
+        echo "❌ Database error: " . $stmt->error;
     }
 
     $stmt->close();

@@ -11,7 +11,7 @@
 
 <body>
   <header class="header">
-    <a href="#" class="logo">SAM</a>
+    <div class="header-container"> <a href="#" class="logo">SAM</a>
 
     <!-- Desktop Nav -->
     <nav class="nav desktop-nav">
@@ -27,7 +27,7 @@
       <span></span>
       <span></span>
     </div>
-  </header>
+
   <div class="overlay" id="overlay"></div>
   <!-- Mobile Nav -->
   <nav class="mobile-nav" id="mobileNav">
@@ -36,14 +36,15 @@
     <a href="#projects">Projects</a>
     <a href="#contact" class="contact-nav">Contact</a>
   </nav>
+</div>
+   
 
-
-
+  </header>
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-box">
       <div class="hero-img reveal-left">
-        <img src="photo/profile.webp" alt="Sam Profile">
+        <img src="photo/hero.webp" alt="Sam Profile" width="250" height="250" loading="eager" fetchpriority="high">
       </div>
 
       <div class="hero-text reveal">
@@ -103,7 +104,7 @@
 
 
       <div class="about-img reveal-right">
-        <img src="photo/sam2.png" alt="About Profile">
+        <img src="photo/about.webp" alt="About Profile">
 
 
       </div>
@@ -237,9 +238,9 @@
           </a>
         </div>
       </div>
-      
+
       <!-- RIGHT -->
-      <form  method="POST" class="contact-form glass reveal" id="contactForm">
+      <form method="POST" class="contact-form glass reveal" id="contactForm">
 
         <!-- 🛡️ Anti-spam hidden field (DO NOT REMOVE) -->
         <input type="text" name="website" style="display:none">
