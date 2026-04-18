@@ -45,8 +45,10 @@ body {
 /* HEADER CONTAINER */
 .header-container {
   display: flex;
-  flex-wrap: wrap; /* allows mobile nav to go to new row */
-  align-items: flex-start; /* IMPORTANT FIX */
+  justify-content: space-between; /* key fix */
+  flex-wrap: nowrap; /* 🔥 IMPORTANT */
+  align-items: center; 
+  position: relative; 
   width: 100%;
   max-width: 1200px;
   height: auto;
@@ -54,11 +56,11 @@ body {
   box-shadow: 0 5px 30px rgba(255, 255, 255, 0.158);
   padding: 1rem;
   border-radius: var(--radius);
-  margin: 0 2rem;
+  margin: 0 2rem!important;
 }
 .logo {
   color: var(--text);
-  font-size: 24px;
+  font-size: clamp(20px, 2vw, 24px);
   font-weight: bold;
   text-decoration: none;
   height: 1;
@@ -75,12 +77,12 @@ body {
 /* DESKTOP NAV */
 .nav {
   gap: 30px;
-  margin-left: auto !important;
   flex-shrink: 0;
+  margin-left: 0;
 }
 
 .nav a {
-  color: var(--text);
+  color: var(--muted);
   text-decoration: none;
   font-size: 14px;
   transition: 0.3s;
@@ -104,7 +106,7 @@ body {
 
 /* BURGER */
 .burger {
-  display: flex;
+  display: none;
   visibility: hidden;
   flex-direction: column;
   gap: 5px;
@@ -118,8 +120,10 @@ body {
 @media (max-width: 768px) {
   .burger {
     margin-left: auto;
+    display: flex;
   }
 }
+
 
 .burger span {
   width: 25px;
@@ -154,26 +158,35 @@ body {
 
 /* MOBILE NAV (inside container) */
 .mobile-nav {
-  flex-basis: 100%; /* forces new row */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin: 0 auto;
   width: 100%;
+  box-shadow: 0px 5px 30px rgba(255, 255, 255, 0.158);
+  background: #000;
+  border-radius: var(--radius);
 
   display: flex;
   flex-direction: column;
-  height: 0;
-  overflow: hidden;
-  opacity: 0;
   gap: 20px;
-  transition: height 1s ease, opacity 0.3s ease;
+  padding: 1rem;
+
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+
+  transition: 0.3s ease;
 }
 
 .header-container.active .mobile-nav {
-  height: auto;
   opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
-
 /* LINKS */
 .mobile-nav a {
-  color: var(--text);
+  color: var(--muted);
   font-size: 1rem;
   text-decoration: none;
   transition: 0.3s;
@@ -255,7 +268,7 @@ h1 span {
   margin: 2rem 0;
   display: inline-block;
   background: rgba(254, 156, 10, 0.1);
-  color: var(--primary);
+  color: var(--text);
   border: 1px solid rgba(254, 156, 10, 0.2);
   padding: clamp(4px, 1vw, 6px) clamp(12px, 2vw, 16px);
   font-size: clamp(12px, 1.5vw, 14px);
@@ -280,34 +293,35 @@ h1 span {
   text-decoration: none;
   display: inline-block;
   margin-right: 10px;
-  transition: 0.25s ease;
   font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* PRIMARY BUTTON */
 .btn {
   margin-top: 2rem;
   background: var(--primary);
   color: #000;
 }
 
+/* HOVER (both buttons) */
 .btn:hover,
-.contact-nav:hover {
+.btn-outline:hover {
   transform: translateY(-3px);
   box-shadow: var(--glow);
 }
 
+/* OUTLINE BUTTON */
 .btn-outline {
   border: 1px solid var(--primary);
   color: var(--primary);
   background: transparent;
 }
 
+/* OUTLINE HOVER */
 .btn-outline:hover {
   background: rgba(254, 156, 10, 0.1);
-  transform: translateY(-3px);
-  box-shadow: var(--glow);
 }
-
 /* ================= SECTIONS ================= */
 .section {
   padding: 60px 10%;
@@ -320,7 +334,7 @@ h2 {
 }
 
 h3 {
-  color: var(--primary);
+  color: var(--text)!important;
   font-size: clamp(18px, 1.3vw, 24px);
 }
 .hero p,
