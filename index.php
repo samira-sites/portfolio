@@ -32,9 +32,8 @@
 </script>
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Modern Websites">
-  <meta property="og:description"
-    content="Check out my portfolio">
+  <meta property="og:title" content="SAM PORTFOLIO">
+  <meta property="og:description" content="Building modern, responsive websites with clean design and great user experience.">
   <meta property="og:site_name" content="Samira Omar">
   <meta property="og:url" content="https://portfolio.samiraomar.com">
   <meta property="og:type" content="website">
@@ -113,7 +112,7 @@
   <section class="hero" id="home">
     <div class="hero-box">
       <div class="hero-img reveal">
-        <img src="photo/hero image.jpg" alt="Sam Profile" width="250" height="250" loading="eager" fetchpriority="high">
+        <img src="photo/hero-image.webp" alt="Sam Profile" loading="eager" fetchpriority="high">
       </div>
 
       <div class="hero-text reveal">
@@ -121,8 +120,7 @@
 
         <h1 class="reveal-right">Hi, I'm <span class="typing-text reveal">Sam</span></h1>
 
-        <p class="subtitle reveal">
-          Crafting modern, responsive websites with a focus on simplicity, clarity, and experience.
+        <p class="subtitle reveal">Crafting modern, responsive websites with a focus on simplicity, clarity, and experience.
         </p>
 
         <div class="buttons">
@@ -172,7 +170,7 @@
 
 
       <div class="about-img reveal-right">
-        <img src="photo/about.webp" alt="About Profile">
+        <img src="photo/about-image.webp" alt="About Profile">
 
 
       </div>
