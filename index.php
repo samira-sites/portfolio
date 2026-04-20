@@ -111,16 +111,16 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-box">
-      <div class="hero-img reveal">
+      <div class="hero-img reveal-left">
         <img src="photo/hero-image.webp" alt="Sam Profile" loading="eager" fetchpriority="high">
       </div>
 
       <div class="hero-text reveal">
         <p class="badge reveal" style="margin: 1rem 0;">Website Developer</p>
 
-        <h1 class="reveal-right">Hi, I'm <span class="typing-text reveal">Sam</span></h1>
+        <h1 class="reveal">Hi, I'm <span class="typing-text reveal">Sam</span></h1>
 
-        <p class="subtitle reveal">Crafting modern, responsive websites with a focus on simplicity, clarity, and experience.
+        <p class="subtitle reveal">Crafting modern, responsive websites with a focus on simplicity, clarity, and user experience.
         </p>
 
         <div class="buttons">
