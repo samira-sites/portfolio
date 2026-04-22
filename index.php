@@ -28,8 +28,8 @@
  "name": "Samira Omar",
  "url": "https://portfolio.samiraomar.com/",
  "jobTitle": "Website Developer",
- "image": "https://samiraomar.com/photo/me.webp",
- "logo": "https://samiraomar.com/photo/navlogo.webp",
+ "image": "https://portfolio.samiraomar.com/photo/me.webp",
+ "logo": "https://portfolio.samiraomar.com/icons/sam-180.webp",
  "sameAs": [
    "https://www.linkedin.com/in/samira-omar/"
  ]
@@ -50,11 +50,6 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Preview of Samira Omar's modern website developer portfolio homepage">
 
-<meta property="fb:app_id" content="your_app_id">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@yourusername">
 
 <!-- Theme -->
 <meta name="theme-color" content="#fe9c0a">
@@ -72,7 +67,6 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
 <!-- CSS -->
-<link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
 <link rel="stylesheet" href="style.css">
 <link rel="preload" as="image" href="photo/hero-profile.webp">
 </head>
