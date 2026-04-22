@@ -440,11 +440,14 @@ h1 span {
   justify-content: center;
   width: 100%;
 }
-
 .hero-img img {
-  width: clamp(200px, 27vw, 290px);
+  width: clamp(230px, 30vw, 320px);
   height: auto;
   filter: drop-shadow(0 10px 20px rgba(254, 156, 10, 0.2));
+}
+
+.hero-img img:hover {
+  transform: translateY(-5px);
 }
 
 /* ================= BUTTONS ================= */
