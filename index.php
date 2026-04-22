@@ -8,21 +8,20 @@
     }
   })();
 </script>
-  <!-- Basic Meta -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Basic Meta -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>PORTFOLIO</title>
-  <meta name="description"
-    content="Turn your idea into a live website">
+<title>PORTFOLIO</title>
+<meta name="description" content="Turn your idea into a live website">
 
-  <!-- SEO -->
-  <meta name="author" content="Samira Omar">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://portfolio.samiraomar.com">
+<!-- SEO -->
+<meta name="author" content="Samira Omar">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://portfolio.samiraomar.com">
 
-  <!-- Structured Data -->
-  <script type="application/ld+json">
+<!-- Structured Data -->
+<script type="application/ld+json">
 {
  "@context": "https://schema.org",
  "@type": "Person",
@@ -37,46 +36,45 @@
 }
 </script>
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="SAM PORTFOLIO">
-  <meta property="og:description" content="Building modern, responsive websites with clean design and great user experience.">
-  <meta property="og:site_name" content="Samira Omar">
-  <meta property="og:url" content="https://portfolio.samiraomar.com">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="en_US">
+<!-- Open Graph -->
+<meta property="og:title" content="SAM PORTFOLIO">
+<meta property="og:description"
+  content="Building modern, responsive websites with clean design and great user experience.">
+<meta property="og:site_name" content="Samira Omar">
+<meta property="og:url" content="https://portfolio.samiraomar.com">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
 
-  <meta property="og:image" content="https://portfolio.samiraomar.com/photo/portfolio-preview.webp">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Preview of Samira Omar's modern website developer portfolio homepage">
+<meta property="og:image" content="https://portfolio.samiraomar.com/photo/portfolio-preview.webp">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Preview of Samira Omar's modern website developer portfolio homepage">
 
-  <meta property="fb:app_id" content="your_app_id">
+<meta property="fb:app_id" content="your_app_id">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@yourusername">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@yourusername">
 
-  <!-- Theme -->
-  <meta name="theme-color" content="#ff7a00">
+<!-- Theme -->
+<meta name="theme-color" content="#fe9c0a">
 
-  <!-- Icons / Favicons -->
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="icon/32.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="icon/192.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="icon/180.png">
+<!-- Icons / Favicons -->
+<link rel="icon" href="/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/sam-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/sam-180.png">
 
-  <!-- PWA -->
-  <link rel="manifest" href="manifest.json">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="preload" as="image" href="photo/hero-profile.webp">
+<!-- CSS -->
+<link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="preload" as="image" href="photo/hero-profile.webp">
 </head>
 
 <body>
@@ -92,15 +90,15 @@
         <a href="#projects">Projects</a>
         <a href="#contact" class="contact-nav">Contact</a>
 
-   <!-- Desktop -->
-<label class="theme-switch desktop">
-  <input type="checkbox" class="themeToggle">
-  <span class="slider">
-    <span class="icon moon">🌙</span>
-    <span class="icon sun">☀️</span>
-  </span>
-</label>
-     
+        <!-- Desktop -->
+        <label class="theme-switch desktop">
+          <input type="checkbox" class="themeToggle">
+          <span class="slider">
+            <span class="icon moon">🌙</span>
+            <span class="icon sun">☀️</span>
+          </span>
+        </label>
+
       </nav>
 
       <!-- Burger -->
@@ -117,15 +115,15 @@
         <a href="#projects" class="mobile-menu">Projects</a>
         <a href="#contact" class="mobile-menu contact-nav">Contact</a>
 
-     <!-- Mobile -->
-<label class="theme-switch mobile">
-  <input type="checkbox" class="themeToggle">
-  <span class="slider">
-    <span class="icon moon">🌙</span>
-    <span class="icon sun">☀️</span>
-  </span>
-</label>
-    
+        <!-- Mobile -->
+        <label class="theme-switch mobile">
+          <input type="checkbox" class="themeToggle">
+          <span class="slider">
+            <span class="icon moon">🌙</span>
+            <span class="icon sun">☀️</span>
+          </span>
+        </label>
+
       </nav>
 
     </div>
@@ -146,7 +144,8 @@
 
         <h1 class="reveal">Hi, I'm <span class="typing-text reveal">Sam</span></h1>
 
-        <p class="subtitle reveal">Crafting modern, responsive websites with a focus on simplicity, clarity, and user experience.
+        <p class="subtitle reveal">Crafting modern, responsive websites with a focus on simplicity, clarity, and user
+          experience.
         </p>
 
         <div class="buttons">
@@ -164,7 +163,8 @@
 
       <div class="about-text-box">
         <p class="about-text reveal">
-          I build modern websites that work smoothly on any device. I focus on clean design, speed, and making them easy to use—so every website feels simple, fast, and enjoyable.
+          I build modern websites that work smoothly on any device. I focus on clean design, speed, and making them easy
+          to use—so every website feels simple, fast, and enjoyable.
         </p>
 
         <div class="socials about-socials">
@@ -367,7 +367,7 @@
 
       <!-- BRAND -->
       <div class="footer-brand">
-        <h3 >Samira Omar</h3>
+        <h3>Samira Omar</h3>
         <p>
           Website Developer focused on creating clean, modern, and user-friendly digital experiences.
         </p>
