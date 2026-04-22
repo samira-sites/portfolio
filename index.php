@@ -19,7 +19,7 @@
   <!-- SEO -->
   <meta name="author" content="Samira Omar">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://samiraomar.com/portfolio">
+  <link rel="canonical" href="https://portfolio.samiraomar.com">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
