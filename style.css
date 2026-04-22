@@ -9,8 +9,119 @@
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   --glow: 0 0 18px rgba(254, 156, 10, 0.2);
   --card: rgba(255, 255, 255, 0.06);
+  --bg2: #000
 }
 
+
+/* 🌞 LIGHT MODE */
+html.light {
+  --bg: #f5f7fb;;
+  --panel: rgba(0, 0, 0, 0.04);
+  --text: #000;
+  --muted: #4b5563;
+  --primary: #f59e0b;
+  --border: rgba(0, 0, 0, 0.08);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --glow: 0 0 18px rgba(245, 158, 11, 0.25);
+  --card: rgba(0, 0, 0, 0.04);
+  --bg2: #fff;
+}
+
+/* smooth transition */
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* toggle UI */
+.theme-switch {
+  position: relative;
+  width: 3.5rem;
+  height: 1.8rem;
+  display: inline-block;
+}
+
+/* hide checkbox */
+.theme-switch input {
+  display: none;
+}
+
+/* track */
+.slider {
+  position: absolute;
+  inset: 0;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* knob (the sliding circle) */
+.slider::before {
+  content: "";
+  position: absolute;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: var(--primary);
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 3px;
+  transition: 0.3s ease;
+  box-shadow: var(--glow);
+}
+
+/* icons */
+.icon {
+  font-size: 14px;
+  z-index: 1;
+  transition: opacity 0.2s ease;
+}
+
+/* default (night mode) → moon visible, sun hidden */
+.sun {
+  opacity: 0;
+}
+
+/* checked (light mode) */
+.theme-switch input:checked + .slider::before {
+  transform: translate(1.7rem, -50%);
+}
+
+.theme-switch input:checked + .slider .sun {
+  opacity: 1;
+}
+
+.theme-switch input:checked + .slider .moon {
+  opacity: 0;
+}
+/* addd */
+/* default: show desktop */
+.theme-switch.desktop {
+  display: inline-block;
+}
+
+.theme-switch.mobile {
+  display: none;
+}
+
+/* mobile view */
+@media (max-width: 768px) {
+  .theme-switch.desktop {
+    display: none;
+  }
+
+  .theme-switch.mobile {
+    display: inline-block;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -157,7 +268,7 @@ body {
   right: 20px;
   margin: 0 auto;
   width: 40%;
-  background: #000;
+  background: var(--bg2);
   border-radius: 16px;
   display: flex;
   flex-direction: column;
@@ -177,7 +288,7 @@ body {
 
 /* LINKS */
 .mobile-nav a {
-  color: var(--muted);
+  color: var(--text);
   font-size: 1rem;
   text-decoration: none;
   transition: 0.3s;
@@ -234,7 +345,7 @@ body {
 }
 .hero:hover {
   box-shadow:
-    0 40px 100px rgba(0, 0, 0, 0.75),
+    0 10px 40px rgba(0, 0, 0, 0.75),
     0 0 80px rgba(254, 156, 10, 0.249),
     inset 0 0 0 1px rgba(255, 255, 255, 0.04);
 }
@@ -287,10 +398,11 @@ body {
 h1 {
   line-height: 1.1;
   font-weight: 700;
+  font-size: clamp(2rem, 3vw, 4rem);
 }
 
 h1 span {
-  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  font-size: clamp(3rem, 5vw, 5rem)!important;
   color: var(--primary);
 }
 
@@ -425,14 +537,12 @@ h3 {
   align-items: center;
   padding: 0.5rem;
   background: transparent;
-  border-radius: 20px;
   margin-bottom: 1.3rem;
   overflow: hidden;
 }
 
 .about-img img {
   max-width: 300px;
-  border-radius: var(--radius);
   margin: 0;
 }
 

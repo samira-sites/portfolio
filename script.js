@@ -1,6 +1,29 @@
 console.log("JS FILE LOADED");
 console.log("mobile links:", document.querySelectorAll(".mobile-nav a"));
+
+// day/night toggle
+const toggles = document.querySelectorAll(".themeToggle");
+
+function setTheme(isLight) {
+  document.documentElement.classList.toggle("light", isLight);
+  localStorage.setItem("theme", isLight ? "light" : "dark");
+
+  toggles.forEach(t => t.checked = isLight);
+}
+
+// load saved theme
+const saved = localStorage.getItem("theme");
+const isLight = saved === "light";
+setTheme(isLight);
+
+// sync all toggles
+toggles.forEach(toggle => {
+  toggle.addEventListener("change", (e) => {
+    setTheme(e.target.checked);
+  });
+});
   
+// burger
 const burger = document.getElementById("burger");
 const headerContainer = document.querySelector(".header-container");
 const overlay = document.getElementById("overlay");

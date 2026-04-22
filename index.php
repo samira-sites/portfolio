@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
+<script>
+  (function () {
+    if (localStorage.getItem("theme") === "light") {
+      document.documentElement.classList.add("light");
+    }
+  })();
+</script>
   <!-- Basic Meta -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +19,7 @@
   <!-- SEO -->
   <meta name="author" content="Samira Omar">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://portfolio.samiraomar.com">
+  <link rel="canonical" href="https://samiraomar.com/portfolio">
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -39,7 +45,7 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
 
-  <meta property="og:image" content="https://portfolio.samiraomar.com/photo/preview.webp">
+  <meta property="og:image" content="https://samiraomar.com/portfolio/preview.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Preview of Samira Omar's modern website developer portfolio homepage">
@@ -85,6 +91,16 @@
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#contact" class="contact-nav">Contact</a>
+
+   <!-- Desktop -->
+<label class="theme-switch desktop">
+  <input type="checkbox" class="themeToggle">
+  <span class="slider">
+    <span class="icon moon">🌙</span>
+    <span class="icon sun">☀️</span>
+  </span>
+</label>
+     
       </nav>
 
       <!-- Burger -->
@@ -100,6 +116,16 @@
         <a href="#about" class="mobile-menu">About</a>
         <a href="#projects" class="mobile-menu">Projects</a>
         <a href="#contact" class="mobile-menu contact-nav">Contact</a>
+
+     <!-- Mobile -->
+<label class="theme-switch mobile">
+  <input type="checkbox" class="themeToggle">
+  <span class="slider">
+    <span class="icon moon">🌙</span>
+    <span class="icon sun">☀️</span>
+  </span>
+</label>
+    
       </nav>
 
     </div>
@@ -170,7 +196,7 @@
 
 
       <div class="about-img reveal-right">
-        <img src="photo/sam.webp" alt="About Profile">
+        <img src="photo/aboutme.webp" alt="About Profile">
 
 
       </div>
