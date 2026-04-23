@@ -232,7 +232,7 @@
 
     <div class="projects-grid reveal">
       <div class="project-card reveal">
-        <img src="photo/work1.webp" alt="Business Website">
+        <img src="photo/project1.webp" alt="Business Website">
 
         <div class="project-info reveal">
           <h3>Business Website</h3>
@@ -246,7 +246,7 @@
       </div>
 
       <div class="project-card reveal">
-        <img src="photo/work2.webp" alt="Contact System">
+        <img src="photo/project2.webp" alt="Contact System">
 
         <div class="project-info reveal">
           <h3>Nail Salon Website (Demo)</h3>
@@ -260,7 +260,7 @@
       </div>
 
       <div class="project-card reveal">
-        <img src="photo/work3.webp" alt="Login System">
+        <img src="photo/project3.webp" alt="Login System">
 
         <div class="project-info reveal">
           <h3>Login System</h3>
