@@ -292,6 +292,8 @@
     <div class="contact-container reveal">
 
       <!-- LEFT -->
+
+      
       <div class="contact-info glass reveal">
 
         <div class="status-badge">
