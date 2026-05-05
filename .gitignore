@@ -1,8 +1,5 @@
-# Environment file (secrets)
 .env
 
-# Composer dependencies
 /vendor
 
-# Optional (recommended)
 *.log
