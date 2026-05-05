@@ -1,0 +1,74 @@
+<?php
+
+require_once __DIR__ . '/../app/db.php';
+session_start();
+
+if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    exit;
+}
+
+/* =========================
+   HONEYPOT (ANTI-SPAM)
+========================= */
+if (!empty($_POST['website'] ?? '')) {
+    exit("❌ Spam detected");
+}
+
+/* =========================
+   RATE LIMIT (FIXED)
+========================= */
+if (!isset($_SESSION['last_submit'])) {
+    $_SESSION['last_submit'] = 0;
+}
+
+if (time() - $_SESSION['last_submit'] < 10) {
+    exit("❌ Please wait before sending again");
+}
+
+$_SESSION['last_submit'] = time();
+
+/* =========================
+   GET DATA
+========================= */
+$name = trim($_POST['name'] ?? '');
+$email = trim($_POST['email'] ?? '');
+$message = trim($_POST['message'] ?? '');
+
+if ($name === '' || $email === '' || $message === '') {
+    exit("❌ All fields are required");
+}
+
+/* =========================
+   SAVE TO DATABASE
+========================= */
+$stmt = $conn->prepare("INSERT INTO form (name, email, message) VALUES (?, ?, ?)");
+$stmt->bind_param("sss", $name, $email, $message);
+
+/* =========================
+   PROCESS
+========================= */
+if ($stmt->execute()) {
+
+    /* =========================
+       TELEGRAM (FROM .ENV)
+    ========================= */
+    $botToken = $_ENV['TELEGRAM_BOT_TOKEN'];
+    $chatID   = $_ENV['TELEGRAM_CHAT_ID'];
+
+    $text = "📩 New Contact Form Message\n\n"
+          . "👤 Name: $name\n"
+          . "📧 Email: $email\n"
+          . "💬 Message: $message";
+
+    file_get_contents(
+        "https://api.telegram.org/bot$botToken/sendMessage?chat_id=$chatID&text=" . urlencode($text)
+    );
+
+    echo "✅ Message sent successfully";
+
+} else {
+    echo "❌ Database error: " . $stmt->error;
+}
+
+$stmt->close();
+$conn->close();

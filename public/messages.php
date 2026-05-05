@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+require_once __DIR__ . '/../app/db.php';
 
 // DELETE (safe)
 if (isset($_GET['delete'])) {
