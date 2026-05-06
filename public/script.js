@@ -128,7 +128,7 @@ if (form && msg) {
       const data = await response.text();
 
       msg.innerText = data;
-      msg.style.color = data.toLowerCase().includes("success") ? "green" : "red";
+      msg.style.color = data.toLowerCase().includes("success") ? "orange" : "red";
 
       if (data.toLowerCase().includes("success")) {
         form.reset();
