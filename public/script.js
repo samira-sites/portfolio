@@ -111,7 +111,7 @@ if (form && msg) {
     console.log([...formData.entries()]);
 
     msg.innerText = "Sending...";
-    msg.style.color = "blue";
+    msg.style.color = "white";
     msg.classList.add("show");
 
     btn.disabled = true;
